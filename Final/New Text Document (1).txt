@@ -1,0 +1,24 @@
+create database trainer;
+
+use trainer;
+
+create table trainer_info(
+trainer_id numeric(6),
+trainer_name varchar(30),
+domain varchar(20),
+primary key(trainer_id));
+
+create table training_schedule(
+schedule_id numeric(6),
+trainer_id numeric(6),
+start_date date,
+college_name varchar(30),
+duration numeric(3,0),
+primary key(schedule_id),
+foreign key(trainer_id) references trainer_info(trainer_id));
+
+select * from trainer_info;
+
+select * from training_schedule;
+
+tomcat:run -Dmaven.tomcat.port=8085
